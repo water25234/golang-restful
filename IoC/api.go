@@ -72,7 +72,7 @@ func (req *HTTPMethodGet) Handle() (response interface{}, err error) {
 
 	req.NewHeader()
 
-	response, err = req.ExecuteAPI()
+	response, err = req.executeAPI()
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err
@@ -91,7 +91,7 @@ func (req *HTTPMethod) Handle() (response interface{}, err error) {
 
 	req.NewHeader()
 
-	response, err = req.ExecuteAPI()
+	response, err = req.executeAPI()
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err

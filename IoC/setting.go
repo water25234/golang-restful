@@ -40,11 +40,6 @@ type RequestHeader struct {
 	Value string
 }
 
-// // Request means
-// type Request struct {
-
-// }
-
 // AppendNewHeaders means
 func AppendNewHeaders(key string, value string) {
 	if len(key) == 0 || len(value) == 0 {
@@ -57,8 +52,8 @@ func AppendNewHeaders(key string, value string) {
 	})
 }
 
-// NewRequest means
-func (req *RequestHTTP) NewRequest(method string, path string, requestbody interface{}) (err error) {
+// newRequest means
+func (req *RequestHTTP) newRequest(method string, path string, requestbody interface{}) (err error) {
 	url := fmt.Sprintf("%s%s", URL, path)
 
 	body, err := requestBody(requestbody)
@@ -75,8 +70,8 @@ func (req *RequestHTTP) NewRequest(method string, path string, requestbody inter
 	return nil
 }
 
-// NewHeader means
-func (req *RequestHTTP) NewHeader() {
+// newHeader means
+func (req *RequestHTTP) newHeader() {
 	if RequestHeaders == nil {
 		return
 	}
@@ -86,8 +81,8 @@ func (req *RequestHTTP) NewHeader() {
 	}
 }
 
-// ExecuteAPI means
-func (req *RequestHTTP) ExecuteAPI() (response interface{}, err error) {
+// executeAPI means
+func (req *RequestHTTP) executeAPI() (response interface{}, err error) {
 	resp, err := req.HTTPClient.Do(req.Request)
 	if err != nil {
 		log.Fatalln(err)
