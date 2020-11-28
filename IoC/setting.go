@@ -52,7 +52,7 @@ func AppendNewHeaders(key string, value string) {
 	})
 }
 
-// newRequest means
+// NewRequest means
 func (req *RequestHTTP) newRequest(method string, path string, requestbody interface{}) (err error) {
 	url := fmt.Sprintf("%s%s", URL, path)
 

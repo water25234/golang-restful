@@ -64,13 +64,13 @@ func (req *RequestHTTP) Call(httpMethod, path string, requestBody interface{}) (
 
 // Handle means
 func (req *HTTPMethodGet) Handle() (response interface{}, err error) {
-	err = req.NewRequest(req.HTTPMethod, req.Path, nil)
+	err = req.newRequest(req.HTTPMethod, req.Path, nil)
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err
 	}
 
-	req.NewHeader()
+	req.newHeader()
 
 	response, err = req.executeAPI()
 	if err != nil {
@@ -83,13 +83,13 @@ func (req *HTTPMethodGet) Handle() (response interface{}, err error) {
 
 // Handle means
 func (req *HTTPMethod) Handle() (response interface{}, err error) {
-	err = req.NewRequest(req.HTTPMethod, req.Path, req.RequestBody)
+	err = req.newRequest(req.HTTPMethod, req.Path, req.RequestBody)
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err
 	}
 
-	req.NewHeader()
+	req.newHeader()
 
 	response, err = req.executeAPI()
 	if err != nil {
