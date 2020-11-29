@@ -18,10 +18,7 @@ func Call(httpMethod, path string, requestBody interface{}) (response interface{
 
 	restful := ioc.New()
 
-	defer func() {
-		ioc.RequestHeaders = nil
-		ioc.URL = ""
-	}()
+	defer restful.Clean()
 
 	ioc.AppendNewHeaders("Content-Type", "application/json; charset=utf-8")
 

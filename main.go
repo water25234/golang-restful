@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	userapi "golang-restful/userAPI"
 	"log"
 	"net/http"
+
+	userapi "golang-restful/userAPI"
 )
 
 func main() {

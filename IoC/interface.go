@@ -4,6 +4,9 @@ package ioc
 type API interface {
 	// Call means
 	Call(httpMethod, path string, requestBody interface{}) (response interface{}, err error)
+
+	// Clean means
+	Clean()
 }
 
 // Handle means

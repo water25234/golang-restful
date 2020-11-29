@@ -62,6 +62,12 @@ func (req *RequestHTTP) Call(httpMethod, path string, requestBody interface{}) (
 	return response, err
 }
 
+// Clean means
+func (req *RequestHTTP) Clean() {
+	RequestHeaders = nil
+	URL = ""
+}
+
 // Handle means
 func (req *HTTPMethodGet) Handle() (response interface{}, err error) {
 	err = req.newRequest(req.HTTPMethod, req.Path, nil)
